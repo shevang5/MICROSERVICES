@@ -1,0 +1,9 @@
+﻿
+> test
+> jest tests/product.test.js --verbose --no-cache
+
+  console.log
+    [dotenv@17.2.3] injecting env (9) from .env -- tip: Γ£à audit secrets and track compliance: https://dotenvx.com/ops
+
+      at _log (node_modules/dotenv/lib/main.js:142:11)
+

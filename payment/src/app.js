@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/payments", paymentRoutes);
 
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Payment Service" })
+})
 
 
 module.exports = app;

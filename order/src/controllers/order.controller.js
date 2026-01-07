@@ -1,5 +1,5 @@
 const orderModel = require("../models/order.model");
-
+const { publishQueue } = require('../broker/broker');
 
 async function createOrder(req, res) {
     try {
@@ -27,7 +27,7 @@ async function createOrder(req, res) {
 
         // 3. Emits order.created event (placeholder)
         console.log(`Emitting order.created for order ${order._id}`);
-        // eventBus.emit("order.created", { orderId: order._id, userId: req.user.id, items });
+        publishQueue("ORDER_SELLER_DASHBOARD.ORDER_CREATED", order);
 
         res.status(201).json(order);
     } catch (error) {

@@ -8,4 +8,8 @@ app.use(express.json());
 
 app.use("/api/orders", orderRoutes);
 
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Order Service" })
+})
+
 module.exports = app;

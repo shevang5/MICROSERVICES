@@ -3,6 +3,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "amqplib": "^0.10.9",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",

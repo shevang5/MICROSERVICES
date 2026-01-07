@@ -1,22 +1,17 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const productRoutes = require("./routes/product.routes");
-const dotenv = require("dotenv");
-dotenv.config();
-
+const sellerRoutes = require("./routes/seller.routes");
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use("/api/products", productRoutes);
+app.use("/seller/dashboard", sellerRoutes);
+
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "Products Service" })
+    res.status(200).json({ message: "Seller Dashboard" })
 })
-
-
-
-
 
 module.exports = app;

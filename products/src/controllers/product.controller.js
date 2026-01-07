@@ -1,6 +1,7 @@
 const imagekit = require("../utils/imagekit");
 const Product = require("../models/product.model");
 const mongoose = require("mongoose");
+const { publishQueue } = require("../broker/broker");
 
 
 const createProduct = async (req, res) => {
@@ -39,6 +40,8 @@ const createProduct = async (req, res) => {
             seller,
             images
         });
+
+        await publishQueue("PRODUCTS_SELLER_DASHBOARD.PRODUCT_CREATED", newProduct);
 
         await newProduct.save();
         res.status(201).json(newProduct);
